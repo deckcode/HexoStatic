@@ -1,0 +1,8 @@
+body {
+    cursor: url(https://cdn.jsdelivr.net/gh/deckcode/HexoStatic@main/img/allimgs/cur/default.cur), default;
+}
+
+a,
+img {
+    cursor: url(https://cdn.jsdelivr.net/gh/deckcode/HexoStatic@main/img/allimgs/cur/pointer.cur), default;
+}
