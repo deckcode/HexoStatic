@@ -1,0 +1,12 @@
+/* 自定义note */
+
+.note.custom {
+    background-color: #f7f7f7;
+    border-left-color: #777;
+    display: block;
+}
+
+.custom:not(.no-icon)::before {
+    font-family: "iconfont";
+    color: var(--icon-color, #333);
+}

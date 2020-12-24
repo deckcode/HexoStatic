@@ -1,6 +1,6 @@
 #footer {
     background: rgba(255, 255, 255, .15);
-    color: rgb(5, 121, 175);
+    color: rgb(0, 0, 0);
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     backdrop-filter: saturate(100%) blur(5px)
