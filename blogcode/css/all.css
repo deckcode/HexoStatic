@@ -467,19 +467,20 @@ img {
 
 /* catagories */
 
-#aside_content .card-archives ul.card-archive-list>.card-archive-list-item a span:first-child,
+
+/* #aside_content .card-archives ul.card-archive-list>.card-archive-list-item a span:first-child,
 #aside_content .card-categories ul.card-category-list>.card-category-list-item a span:first-child {
     width: auto;
     min-width: 50%;
-}
+} */
 
 
 /* 文章页背景 */
 
-.layout_post>#post {
-    /* 以下代表白色透明度为0.3 */
+
+/* .layout_post>#post {
     background: rgba(255, 255, 255, .8);
-}
+} */
 
 
 /* 所有背景（包括首页卡片、文章页、页面页等） */
