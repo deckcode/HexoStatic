@@ -488,9 +488,7 @@ img {
 #aside_content .card-widget,
 #recent-posts>.recent-post-item,
 .layout_page>div:first-child:not(.recent-posts),
-.layout_post>#page,
-.layout_post>#post,
-.read-mode .layout_post>#post {
+.layout_post>#page {
     /* 以下代表白色透明度为0.3 */
     background: rgba(255, 255, 255, .99);
 }
