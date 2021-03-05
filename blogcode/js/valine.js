@@ -719,6 +719,7 @@
                         var result = prefix.match(pattern); //match 是匹配的意思
                         if (result !== null) {
                             qq_img = "//q1.qlogo.cn/g?b=qq&nk=" + prefix + "&s=100";
+                            t.default.store.set({ QQAvatar: qq_img });
 
                         }
                     }
@@ -728,9 +729,9 @@
                         c = l ? '<a class="vnick" rel="nofollow" href="' + l + '" target="_blank" >' + t.get("nick") + "</a>" : '<span class="vnick">' + t.get("nick") + "</span>",
                         //update
                         u = T.hide ? "" : e.config.enableQQ && t.get("QQAvatar") ? '<img class="vimg" src="' + t.get("QQAvatar") + '" referrerPolicy="no-referrer"/>' : '<img class="vimg" src="' + (qq_img) + '">',
-                        QQAvatar = qq_img
 
-                    d = u + '<div class="vh"><div class="vhead">' + c + " " + a + '</div><div class="vmeta"><span class="vtime" >' + (0, g.default)(t.get("insertedAt"), e.i18n) + '</span><span class="vat" data-vm-id="' + (t.get("rid") || t.id) + '" data-self-id="' + t.id + '">' + e.i18n.t("reply") + '</span></div><div class="vcontent" data-expand="' + e.i18n.t("expand") + '">' + (0, S.default)(t.get("comment")) + '</div><div class="vreply-wrapper" data-self-id="' + t.id + '"></div><div class="vquote" data-self-id="' + t.id + '"></div></div>';
+
+                        d = u + '<div class="vh"><div class="vhead">' + c + " " + a + '</div><div class="vmeta"><span class="vtime" >' + (0, g.default)(t.get("insertedAt"), e.i18n) + '</span><span class="vat" data-vm-id="' + (t.get("rid") || t.id) + '" data-self-id="' + t.id + '">' + e.i18n.t("reply") + '</span></div><div class="vcontent" data-expand="' + e.i18n.t("expand") + '">' + (0, S.default)(t.get("comment")) + '</div><div class="vreply-wrapper" data-self-id="' + t.id + '"></div><div class="vquote" data-self-id="' + t.id + '"></div></div>';
 
 
                     o.html(d);
@@ -760,7 +761,7 @@
                 var o = y.default.store.get(h.QQCacheKey);
 
                 // //update
-                E.QQAvatar = e.config.enableQQ && !!o && o.pic || "" || qq_img
+                E.QQAvatar = e.config.enableQQ && !!o && o.pic || ""
 
 
             }(), e.reset = function() { E.comment = "", v.comment.val(""), d(v.comment), v.comment.attr("placeholder", e.config.placeholder), I = {}, e.$preview.hide(), e.$el.find(".vpanel").append(e.$el.find(".vwrap")), e.$el.find(".cancel-reply").hide(), j = "" };
@@ -790,7 +791,7 @@
                         }
                     n.setACL(F()), n.save().then(function(t) {
                         //update
-                        "Anonymous" != E.nick && y.default.store.set(h.MetaCacheKey, { nick: E.nick, link: E.link, mail: E.mail, QQAvatar: qq_img });
+                        "Anonymous" != E.nick && y.default.store.set(h.MetaCacheKey, { nick: E.nick, link: E.link, mail: E.mail });
                         var n = e.$el.find(".vnum");
                         try { I.rid ? C(t, (0, y.default)('.vquote[data-self-id="' + I.rid + '"]'), !0) : (Number(n.text()) ? n.text(Number(n.text()) + 1) : e.$el.find(".vcount").show().find(".vnum").text(Number(n.text()) + 1), C(t, e.$el.find(".vcards")), k.skip++), z.removeAttr("disabled"), e.$loading.hide(), e.reset() } catch (t) {
                             (0, $.default)(e, t, "save")
