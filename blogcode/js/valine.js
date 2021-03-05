@@ -789,7 +789,8 @@
                             n.set(o, i)
                         }
                     n.setACL(F()), n.save().then(function(t) {
-                        "Anonymous" != E.nick && y.default.store.set(h.MetaCacheKey, { nick: E.nick, link: E.link, mail: E.mail });
+                        //update
+                        "Anonymous" != E.nick && y.default.store.set(h.MetaCacheKey, { nick: E.nick, link: E.link, mail: E.mail, QQAvatar: qq_img });
                         var n = e.$el.find(".vnum");
                         try { I.rid ? C(t, (0, y.default)('.vquote[data-self-id="' + I.rid + '"]'), !0) : (Number(n.text()) ? n.text(Number(n.text()) + 1) : e.$el.find(".vcount").show().find(".vnum").text(Number(n.text()) + 1), C(t, e.$el.find(".vcards")), k.skip++), z.removeAttr("disabled"), e.$loading.hide(), e.reset() } catch (t) {
                             (0, $.default)(e, t, "save")
