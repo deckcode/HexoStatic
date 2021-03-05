@@ -1,4 +1,3 @@
-// 气泡
 function qipao() {
     $('#page-header').circleMagic({
         radius: 10,
@@ -42,6 +41,4 @@ function qipao() {
         }(), window.addEventListener("scroll", c, !1), window.addEventListener("resize", s, !1)
     }
 }(jQuery);
-
-// 调用气泡方法
 qipao();
