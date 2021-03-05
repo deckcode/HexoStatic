@@ -711,28 +711,10 @@
                         i = t.get("ua"),
                         a = "";
                     i && !/ja/.test(e.config.lang) && (i = y.default.detect(i), a = '<span class="vsys">' + i.browser + " " + i.version + '</span> <span class="vsys">' + i.os + " " + i.osVersion + "</span>"), "*" === e.config.path && (a = '<a href="' + t.get("url") + '" class="vsys">' + t.get("url") + "</a>");
-                    //update
-                    var qq_img = T.cdn + (0, s.default)(t.get("mail")) + T.params;
-                    if (t.get("mail").indexOf("@qq.com") >= 0) {
-                        var prefix = t.get("mail").replace(/@.*/, ""); //前缀
-                        var pattern = /^\d+$/g; //正则表达式
-                        var result = prefix.match(pattern); //match 是匹配的意思
-                        if (result !== null) {
-                            qq_img = "//q1.qlogo.cn/g?b=qq&nk=" + prefix + "&s=100";
-
-                        }
-                    }
-
-
                     var l = t.get("link") ? /^https?\:\/\//.test(t.get("link")) ? t.get("link") : "http://" + t.get("link") : "",
                         c = l ? '<a class="vnick" rel="nofollow" href="' + l + '" target="_blank" >' + t.get("nick") + "</a>" : '<span class="vnick">' + t.get("nick") + "</span>",
-                        //update
-                        u = T.hide ? "" : e.config.enableQQ && t.get("QQAvatar") ? '<img class="vimg" src="' + t.get("QQAvatar") + '" referrerPolicy="no-referrer"/>' : '<img class="vimg" src="' + (qq_img) + '">',
-                        QQAvatar = qq_img
-
-                    d = u + '<div class="vh"><div class="vhead">' + c + " " + a + '</div><div class="vmeta"><span class="vtime" >' + (0, g.default)(t.get("insertedAt"), e.i18n) + '</span><span class="vat" data-vm-id="' + (t.get("rid") || t.id) + '" data-self-id="' + t.id + '">' + e.i18n.t("reply") + '</span></div><div class="vcontent" data-expand="' + e.i18n.t("expand") + '">' + (0, S.default)(t.get("comment")) + '</div><div class="vreply-wrapper" data-self-id="' + t.id + '"></div><div class="vquote" data-self-id="' + t.id + '"></div></div>';
-
-
+                        u = T.hide ? "" : e.config.enableQQ && t.get("QQAvatar") ? '<img class="vimg" src="' + t.get("QQAvatar") + '" referrerPolicy="no-referrer"/>' : '<img class="vimg" src="' + (T.cdn + (0, s.default)(t.get("mail")) + T.params) + '">',
+                        d = u + '<div class="vh"><div class="vhead">' + c + " " + a + '</div><div class="vmeta"><span class="vtime" >' + (0, g.default)(t.get("insertedAt"), e.i18n) + '</span><span class="vat" data-vm-id="' + (t.get("rid") || t.id) + '" data-self-id="' + t.id + '">' + e.i18n.t("reply") + '</span></div><div class="vcontent" data-expand="' + e.i18n.t("expand") + '">' + (0, S.default)(t.get("comment")) + '</div><div class="vreply-wrapper" data-self-id="' + t.id + '"></div><div class="vquote" data-self-id="' + t.id + '"></div></div>';
                     o.html(d);
                     var p = o.find(".vat");
                     o.find("a").forEach(function(e) { e && !(0, y.default)(e).hasClass("at") && (0, y.default)(e).attr({ target: "_blank", rel: "nofollow" }) }), r ? n.append(o) : n.prepend(o);
@@ -758,11 +740,7 @@
                         e.$el.find(".v" + r).val(y.default.unescape(t[r])), E[r] = t[r]
                     }
                 var o = y.default.store.get(h.QQCacheKey);
-
-                // //update
-                E.QQAvatar = e.config.enableQQ && !!o && o.pic || "" || qq_img
-
-
+                E.QQAvatar = e.config.enableQQ && !!o && o.pic || ""
             }(), e.reset = function() { E.comment = "", v.comment.val(""), d(v.comment), v.comment.attr("placeholder", e.config.placeholder), I = {}, e.$preview.hide(), e.$el.find(".vpanel").append(e.$el.find(".vwrap")), e.$el.find(".cancel-reply").hide(), j = "" };
             var z = e.$el.find(".vsubmit"),
                 L = function(t) {
