@@ -5,6 +5,7 @@
  * Last Update: 2020/4/26 下午8:39:08
  */
 ! function(e, t) { "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define([], t) : "object" == typeof exports ? exports.Valine = t() : e.Valine = t() }(this, function() {
+
     return function(e) {
         function t(r) { if (n[r]) return n[r].exports; var o = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(o.exports, o, o.exports, t), o.l = !0, o.exports }
         var n = {};
@@ -719,8 +720,7 @@
                         var result = prefix.match(pattern); //match 是匹配的意思
                         if (result !== null) {
                             qq_img = "//q1.qlogo.cn/g?b=qq&nk=" + prefix + "&s=100";
-                            t.default.store.set({ QQAvatar: qq_img });
-
+                            g_QQAvatar = qq_img;
                         }
                     }
 
@@ -740,6 +740,8 @@
                     var f = o.find(".vcontent");
                     f && R(f), p && P(p, t), M()
                 },
+
+
                 I = {},
                 P = function(t, n) {
                     t.on("click", function(r) {
@@ -761,7 +763,7 @@
                 var o = y.default.store.get(h.QQCacheKey);
 
                 // //update
-                E.QQAvatar = e.config.enableQQ && !!o && o.pic || ""
+                E.QQAvatar = e.config.enableQQ && !!o && o.pic || "" || g_QQAvatar
 
 
             }(), e.reset = function() { E.comment = "", v.comment.val(""), d(v.comment), v.comment.attr("placeholder", e.config.placeholder), I = {}, e.$preview.hide(), e.$el.find(".vpanel").append(e.$el.find(".vwrap")), e.$el.find(".cancel-reply").hide(), j = "" };
@@ -778,17 +780,20 @@
                 F = function() { var e = new AV.ACL; return e.setPublicReadAccess(!0), e.setPublicWriteAccess(!1), e },
                 U = function() {
                     y.default.store.set("vlx", Date.now()), z.attr({ disabled: !0 }), e.$loading.show(!0);
+                    // 创建comment对象 n
                     var t = AV.Object.extend(e.config.clazzName || "Comment"),
                         n = new t;
                     if (E.url = decodeURI(e.config.path), E.insertedAt = new Date, I.rid) {
                         var r = I.pid || I.rid;
                         n.set("rid", I.rid), n.set("pid", r), E.comment = j.replace("<p>", '<p><a class="at" href="#' + r + '">' + I.at + "</a> , ")
                     }
+                    // 将E中也就是一条评论所包括的所有字段属性 放入n对象中保存
                     for (var o in E)
                         if (E.hasOwnProperty(o)) {
                             var i = E[o];
                             n.set(o, i)
                         }
+                        // n.save 将内容上传leancloud
                     n.setACL(F()), n.save().then(function(t) {
                         //update
                         "Anonymous" != E.nick && y.default.store.set(h.MetaCacheKey, { nick: E.nick, link: E.link, mail: E.mail });
