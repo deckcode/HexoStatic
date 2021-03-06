@@ -765,7 +765,7 @@
                 var o = y.default.store.get(h.QQCacheKey);
 
                 // //update
-                E.QQAvatar = e.config.enableQQ && !!o && o.pic || "" || g_QQAvatar
+                E.QQAvatar = e.config.enableQQ && !!o && o.pic || ""
 
 
             }(), e.reset = function() { E.comment = "", v.comment.val(""), d(v.comment), v.comment.attr("placeholder", e.config.placeholder), I = {}, e.$preview.hide(), e.$el.find(".vpanel").append(e.$el.find(".vwrap")), e.$el.find(".cancel-reply").hide(), j = "" };
