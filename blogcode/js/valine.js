@@ -722,6 +722,7 @@
                         if (result !== null) {
                             qq_img = "//q1.qlogo.cn/g?b=qq&nk=" + prefix + "&s=100";
                             g_QQAvatar = qq_img;
+                            t.set("QQAvatar", qq_img);
                         }
                     }
 
