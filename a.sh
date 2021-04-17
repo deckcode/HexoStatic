@@ -1,3 +1,5 @@
 git add .
-git commit -m 'renew'
+time1=$(date)
+echo time1
+git commit -m 'new:'+time1
 git push origin main
